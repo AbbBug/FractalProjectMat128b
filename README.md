@@ -1,6 +1,6 @@
 # Fractal Project for MAT 128b
 i. Answers to question one here.
-ii.
+ii. Question2
 iii.
 iv.
 v.
