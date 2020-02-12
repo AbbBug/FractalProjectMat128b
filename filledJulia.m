@@ -8,7 +8,8 @@ function M = filledJulia(iterations,left,right,bottom,top,xRes,yRes,f)
 
     M = 2*ones(yRes,xRes);
 
-    oldCompletion = "";
+    oldCompletion = 0;
+    lineLength = displayCompletion(oldCompletion, 0);
     for j=1:yRes,
         y = bottom + (j-1)*(top - bottom)/yRes;
         for i=1:xRes,
@@ -24,21 +25,29 @@ function M = filledJulia(iterations,left,right,bottom,top,xRes,yRes,f)
                 zk = phi(zk);
 
                 err1 = abs(zk-fixpt1);
-                if err1 < 1.e-6, iflag1 = iflag1 + 1; else, iflag1 = 0; end;
+                if (err1 < 1.e-6),
+                    iflag1 = iflag1 + 1;
+                else,
+                    iflag1 = 0;
+                end;
 
                 err2 = abs(zk-fixpt2);
-                if err2 < 1.e-6, iflag2 = iflag2 + 1; else, iflag2 = 0; end;
+                if err2 < 1.e-6,
+                    iflag2 = iflag2 + 1;
+                else,
+                    iflag2 = 0;
+                end;
 
             end;
             if iflag1 >= 5 || iflag2 >= 5 || kount >= iterations,
                 M(j,i) = 1;
             end;
-        end;
-        completion = strcat(num2str(round(j/yRes*100)),'%');
-        if (~strcmp(completion,oldCompletion)),
-            clc;
-            display(completion);
-            oldCompletion = completion;
+            completion = round(((j-1)/yRes+i/(xRes*yRes))*100);
+            if (completion ~= oldCompletion),
+                lineLength = displayCompletion(completion, lineLength);
+                oldCompletion = completion;
+            end;
         end;
     end;
+    fprintf("\nDone\n");
 end
