@@ -1,9 +1,8 @@
-function M = filledJulia2(iterations,left,right,bottom,top,xRes,yRes,c)
+function M = filledJulia(iterations,left,right,bottom,top,xRes,yRes,c)
 
     fixpt1 = (1 + sqrt(6))/2;
     fixpt2 = (1 - sqrt(6))/2;
     colormap([1 0 0; 1 1 1]);
-
 
 
     M = 2*ones(yRes,xRes);
