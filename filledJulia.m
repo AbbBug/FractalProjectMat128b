@@ -1,5 +1,5 @@
-function M = filledJulia(iterations,left,right,bottom,top,xRes,yRes,f)
-    phi = inline(f);
+function M = filledJulia2(iterations,left,right,bottom,top,xRes,yRes,c)
+
     fixpt1 = (1 + sqrt(6))/2;
     fixpt2 = (1 - sqrt(6))/2;
     colormap([1 0 0; 1 1 1]);
@@ -20,9 +20,9 @@ function M = filledJulia(iterations,left,right,bottom,top,xRes,yRes,f)
             iflag2 = 0;
             kount = 0;
 
-            while kount < iterations && abs(zk) < 2 && iflag1 < 5 && iflag2 < 5,
+            while kount < iterations && abs(zk) < sqrt((top - bottom)^2 + (right - left)^2) && iflag1 < 5 && iflag2 < 5,
                 kount = kount + 1;
-                zk = phi(zk);
+                zk = zk^2 + c;
 
                 err1 = abs(zk-fixpt1);
                 if (err1 < 1.e-6),
