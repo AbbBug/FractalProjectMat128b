@@ -1,6 +1,5 @@
 function M = Mandelbrot(iterations,left,right,bottom,top,xRes,yRes,c)
 
-    colormap([1 0 0; 1 1 1]);
 
 
     M = 2*ones(yRes,xRes);
@@ -19,9 +18,7 @@ function M = Mandelbrot(iterations,left,right,bottom,top,xRes,yRes,c)
                 kount = kount + 1;
                 zk = zk^2 + c;
             end;
-            if kount >= iterations,
-                M(j,i) = 1;
-            end;
+            M(j,i) = kount;
             completion = round(((j-1)/yRes+i/(xRes*yRes))*100);
             if (completion ~= oldCompletion),
                 lineLength = displayCompletion(completion, lineLength);

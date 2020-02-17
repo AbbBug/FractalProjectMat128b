@@ -7,6 +7,8 @@ top = 1.8;
 xRes = 5000;
 yRes = 5000;
 z = - 0.5;
+cmapFunc = @(n)(fliplr(1-hot(n)));
+colormap(cmapFunc(iterations));
 M = Mandelbrot(iterations,left,right,bottom,top,xRes,yRes, z);
 image([left right], [bottom top], M),
 axis xy
