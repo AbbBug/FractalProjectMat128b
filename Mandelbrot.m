@@ -11,8 +11,8 @@ function M = filledJulia(iterations,left,right,bottom,top,xRes,yRes,c)
         y = bottom + (j-1)*(top - bottom)/yRes;
         for i=1:xRes,
             x = left + (i-1)*(right - left)/xRes;
-            z = x + 1i*y;
-            zk = z;
+            zk = c;
+            c = x + 1i*y;
             kount = 0;
 
             while kount < iterations && abs(zk) < sqrt((top - bottom)^2 + (right - left)^2),
