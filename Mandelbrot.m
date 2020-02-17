@@ -1,4 +1,4 @@
-function M = filledJulia(iterations,left,right,bottom,top,xRes,yRes,c)
+function M = Mandelbrot(iterations,left,right,bottom,top,xRes,yRes,c)
 
     colormap([1 0 0; 1 1 1]);
 

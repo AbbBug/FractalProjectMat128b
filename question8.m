@@ -1,4 +1,4 @@
-% This is the code for question number 2. This code is slow
+% This is the code for question number 8. This code is slow
 iterations = 100; % length of time you want to take.
 left = -1.8;
 right = 1.8;
